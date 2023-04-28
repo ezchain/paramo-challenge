@@ -6,7 +6,6 @@ namespace Sat.Recruitment.Infrastructure
     {
         public IList<string> ReadFromFile(string path)
         {
-           path = Directory.GetCurrentDirectory() + "/Files/Users.txt";
             var lines = File.ReadAllLines(path);
             return lines.ToList();
         }

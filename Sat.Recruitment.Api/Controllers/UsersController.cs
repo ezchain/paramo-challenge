@@ -46,11 +46,12 @@ namespace Sat.Recruitment.Api.Controllers
 
 
         [HttpPost]
-        public async Task<Result> UploadFile(UploadFileRequest request)
+        public async Task<Result> UploadFile([FromBody]UploadFileRequest request)
         {
             var response = new Result();
             try
             {
+                request.IsValid(ModelState);
                 _userService.Create(request.Path);
                 response.IsSuccess = true;
                 response.Message = "Users Created";
